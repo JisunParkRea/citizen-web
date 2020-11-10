@@ -1,7 +1,15 @@
 from flask import Flask, render_template
+
 import csv
+import json
 
 app = Flask(__name__, static_url_path='/static')
+
+# kakao map api token
+with open('secrets.json') as json_file:
+    json_data = json.load(json_file)
+
+KAKAO_MAP_API_KEY = json_data["KAKAO_MAP_API_KEY"]
 
 
 @app.route('/')
@@ -10,7 +18,7 @@ def index():
 
 @app.route('/map')
 def map():
-    return render_template('map.html')
+    return render_template('map.html', KAKAO_MAP_API_KEY=KAKAO_MAP_API_KEY)
 
 @app.route('/chart')
 def chart():
