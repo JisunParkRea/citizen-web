@@ -70,7 +70,7 @@
 
         <ol>
           <li><a href="{{ url_for('index') }}">Home</a></li>
-          <li>Graph</li>
+          <li><a href="{{ url_for('chart') }}">Graph</a></li>
           <li>벽산디지털밸리7차</li>
         </ol>
         <h2>그래프</h2>
@@ -81,6 +81,7 @@
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
+
 
         <!-- line chart start -->
         <canvas id="line-chart" width="100%"></canvas>
@@ -99,17 +100,41 @@
                 label: "10월26일 월요일",
                 borderColor: "#3e95cd",
                 fill: false
-              }, {data: [{% for item in valuess %}
+              }, {data: [{% for item in values2 %}
                         {{item}},
                        {% endfor %}],
                 label: "10월27일 화요일",
                 borderColor: "#8e5ea2",
                 fill: false
-              }, {data: [{% for item in valuesss %}
+              }, {data: [{% for item in values3 %}
                         {{item}},
                        {% endfor %}],
                 label: "10월28일 수요일",
                 borderColor: "#3cba9f",
+                fill: false
+              }, {data: [{% for item in values4 %}
+                        {{item}},
+                       {% endfor %}],
+                label: "10월29일 수요일",
+                borderColor: "#e8c3b9",
+                fill: false
+              }, {data: [{% for item in values5 %}
+                        {{item}},
+                       {% endfor %}],
+                label: "10월30일 수요일",
+                borderColor: "#c45850",
+                fill: false
+              }, {data: [{% for item in values6 %}
+                        {{item}},
+                       {% endfor %}],
+                label: "10월31일 수요일",
+                borderColor: "#FF1493",
+                fill: false
+              }, {data: [{% for item in values7 %}
+                        {{item}},
+                       {% endfor %}],
+                label: "11월1일 수요일",
+                borderColor: "#ffff00",
                 fill: false
               }
             ]
@@ -121,11 +146,11 @@
               text: 'Smoking level per minutes (in PPM)'
             },
             tooltips: {
-				mode: 'index',
-			},
-            hover: {
-				mode: 'index'
-			},
+                mode: 'index',
+            },
+              hover: {
+                mode: 'index'
+            },
           }
         });
         </script>
