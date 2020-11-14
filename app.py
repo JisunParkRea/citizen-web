@@ -14,8 +14,8 @@ KAKAO_MAP_API_KEY = json_data["KAKAO_MAP_API_KEY"]
 
 # read smoking level data function
 def read_data(data_file, labels, values):
-    #time_interval = 46546
-    time_interval = 18000
+    time_interval = 46546
+    #time_interval = 18000
 
     cnt = 0
     tmp_sum = 0
@@ -25,7 +25,7 @@ def read_data(data_file, labels, values):
     rdr = csv.reader(f)
     for line in rdr:
         total_cnt += 1
-        if total_cnt < 900:
+        if total_cnt < 900: # 15분 skip
             continue
         tmp_sum += float(line[1]) # ppm 수치 기준
         cnt += 1
@@ -57,45 +57,109 @@ def chart_jisun():
 
     labels = []
     values = []
-    read_data('static/data/1026_jisun2.txt', labels, values)
+    read_data('static/data/jisun2/1026_jisun2.txt', labels, values)
 
     labels2 = []
     values2 = []
-    read_data('static/data/1027_jisun2.txt', labels2, values2)
+    read_data('static/data/jisun2/1027_jisun2.txt', labels2, values2)
 
     labels3 = []
     values3 = []
-    read_data('static/data/1028_jisun2.txt', labels3, values3)
+    read_data('static/data/jisun2/1028_jisun2.txt', labels3, values3)
 
     labels4 = []
     values4 = []
-    read_data('static/data/1029_jisun2.txt', labels4, values4)
+    read_data('static/data/jisun2/1029_jisun2.txt', labels4, values4)
 
     labels5 = []
     values5 = []
-    read_data('static/data/1030_jisun2.txt', labels5, values5)
+    read_data('static/data/jisun2/1030_jisun2.txt', labels5, values5)
 
     labels6 = []
     values6 = []
-    read_data('static/data/1031_jisun2.txt', labels6, values6)
+    read_data('static/data/jisun2/1031_jisun2.txt', labels6, values6)
 
     labels7 = []
     values7 = []
-    read_data('static/data/1101_jisun2.txt', labels7, values7)
+    read_data('static/data/jisun2/1101_jisun2.txt', labels7, values7)
 
     return render_template('chart_jisun.html', labels=labels, values=values, labels2=labels2, values2=values2, labels3=labels3, values3=values3, values4=values4, values5=values5, values6=values6, values7=values7)
 
 @app.route('/chart_jeongja')
 def chart_jeongja():
-    return render_template('chart_jeongja.html')
+
+    labels = []
+    values = []
+    read_data('static/data/jeongja2/1026_jeongja2.txt', labels, values)
+
+    labels2 = []
+    values2 = []
+    read_data('static/data/jeongja2/1027_jeongja1.txt', labels2, values2)
+
+    labels3 = []
+    values3 = []
+    read_data('static/data/jeongja2/1028_jeongja2.txt', labels3, values3)
+
+    labels4 = []
+    values4 = []
+    read_data('static/data/jeongja2/1029_jeongja2.txt', labels4, values4)
+
+    labels5 = []
+    values5 = []
+    read_data('static/data/jeongja2/1030_jeongja2.txt', labels5, values5)
+
+    labels6 = []
+    values6 = []
+    read_data('static/data/jeongja2/1031_jeongja2.txt', labels6, values6)
+
+    labels7 = []
+    values7 = []
+    read_data('static/data/jeongja2/1101_jeongja2.txt', labels7, values7)
+
+    return render_template('chart_jisun.html', labels=labels, values=values, labels2=labels2, values2=values2, labels3=labels3, values3=values3, values4=values4, values5=values5, values6=values6, values7=values7)
+
 
 @app.route('/chart_cheonmak')
 def chart_cheonmak():
-    return render_template('chart_cheonmak.html')
+
+    labels = []
+    values = []
+    read_data('static/data/cheonmak2/1026_cheonmak2.txt', labels, values)
+
+    labels2 = []
+    values2 = []
+    read_data('static/data/cheonmak2/1027_cheonmak2.txt', labels2, values2)
+
+    labels3 = []
+    values3 = []
+    read_data('static/data/cheonmak2/1028_cheonmak2.txt', labels3, values3)
+
+    labels4 = []
+    values4 = []
+    read_data('static/data/cheonmak2/1029_cheonmak2.txt', labels4, values4)
+
+    labels5 = []
+    values5 = []
+    read_data('static/data/cheonmak2/1030_cheonmak2.txt', labels5, values5)
+
+    labels6 = []
+    values6 = []
+    read_data('static/data/cheonmak2/1031_cheonmak2.txt', labels6, values6)
+
+    labels7 = []
+    values7 = []
+    read_data('static/data/cheonmak2/1101_cheonmak2.txt', labels7, values7)
+
+    return render_template('chart_cheonmak.html', labels=labels, values=values, labels2=labels2, values2=values2, labels3=labels3, values3=values3, values4=values4, values5=values5, values6=values6, values7=values7)
 
 @app.route('/statistics')
 def statistics():
     return render_template('statistics.html')
+
+
+@app.route('/forum')
+def forum():
+    return render_template('forum.html')
 
 
 if __name__ == '__main__':
