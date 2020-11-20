@@ -27,9 +27,16 @@
   <!-- Template Main CSS File -->
   <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 
-
   <!-- kakao map api -->
   <script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
   <!-- =======================================================
   * Template Name: Scaffold - v2.0.0
@@ -82,10 +89,56 @@
       <div class="container">
 
 
-        <!-- statistics -->
 
+        <!-- Tab을 구성할 영역 설정-->
+        <div style="margin:10px;">
+          <ul class="nav nav-tabs">
+            <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
+            <li class="active"><a href="#all" data-toggle="tab">All</a></li>
+            <li><a href="#jisun" data-toggle="tab">Profile</a></li>
+            <li><a href="#jeonja" data-toggle="tab">Profile</a></li>
+            <li><a href="#cheonmak" data-toggle="tab">Messages</a></li>
+          </ul>
 
-        <!-- end -->
+          <!-- Tab이 선택되면 내용이 보여지는 영역 -->
+          <div class="tab-content">
+            <!-- all -->
+            <div class="tab-pane fade in active" id="all">
+              <canvas id="polar-chart" width="800" height="450"></canvas>
+              <script>
+              new Chart(document.getElementById("polar-chart"), {
+                type: 'polarArea',
+                data: {
+                  labels: ["jisun2", "jeongja2", "cheonmak2"],
+                  datasets: [
+                    {
+                      label: "Smoking Level Average (ppm)",
+                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                      data: [{{jisun2_avg}}, {{jeongja2_avg}}, {{cheonmak2_avg}}]
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Smoking Level Average (ppm) in 10/26'
+                  }
+                }
+              });
+              </script>
+            </div>
+            <!-- jisun -->
+            <div class="tab-pane fade" id="jisun">
+              d
+            </div>
+            <!-- jeongja -->
+            <div class="tab-pane fade" id="jeonja">Profile 메뉴</div>
+            <!-- cheonmak -->
+            <div class="tab-pane fade" id="cheonmak">Messages 메뉴</div>
+          </div>
+        </div>
+  
+  
 
 
         <div class="portfolio-description">
