@@ -91,61 +91,329 @@
 
 
         <!-- Tab을 구성할 영역 설정-->
-        <div style="margin:10px;">
+        <div>
           <ul class="nav nav-tabs">
             <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
-            <li class="active"><a href="#all" data-toggle="tab">All</a></li>
-            <li><a href="#jisun" data-toggle="tab">Profile</a></li>
+            <li class="active"><a href="#all" data-toggle="tab">평균</a></li>
+            <li><a href="#maxValue" data-toggle="tab">최대값</a></li>
             <li><a href="#jeonja" data-toggle="tab">Profile</a></li>
-            <li><a href="#cheonmak" data-toggle="tab">Messages</a></li>
           </ul>
 
           <!-- Tab이 선택되면 내용이 보여지는 영역 -->
           <div class="tab-content">
             <!-- all -->
             <div class="tab-pane fade in active" id="all">
-              <canvas id="polar-chart" width="800" height="450"></canvas>
-              <script>
-              new Chart(document.getElementById("polar-chart"), {
-                type: 'polarArea',
-                data: {
-                  labels: ["jisun2", "jeongja2", "cheonmak2"],
-                  datasets: [
-                    {
-                      label: "Smoking Level Average (ppm)",
-                      backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-                      data: [{{jisun2_avg}}, {{jeongja2_avg}}, {{cheonmak2_avg}}]
-                    }
-                  ]
-                },
-                options: {
-                  title: {
-                    display: true,
-                    text: 'Smoking Level Average (ppm) in 10/26'
-                  }
-                }
-              });
-              </script>
+              
+              <!-- avg -->
+              <div style="margin:10px;">
+                <ul class="nav nav-pills">
+                  <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
+                  <li class="active"><a href="#1026" data-toggle="tab">10/26</a></li>
+                  <li><a href="#1027" data-toggle="tab">1027</a></li>
+                  <li><a href="#1028" data-toggle="tab">1028</a></li>
+                  <li><a href="#1029" data-toggle="tab">1029</a></li>
+                  <li><a href="#1030" data-toggle="tab">1030</a></li>
+                  <li><a href="#1031" data-toggle="tab">1031</a></li>
+                  <li><a href="#1101" data-toggle="tab">1101</a></li>
+                </ul>
+      
+                <!-- Tab이 선택되면 내용이 보여지는 영역 -->
+                <div class="tab-content">
+                  <!-- 1026 -->
+                  <div class="tab-pane fade in active" id="1026">
+                    <canvas id="polar-chart" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1026}}, {{jeongja2_avg_1026}}, {{cheonmak2_avg_1026}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/26'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1027 -->
+                  <div class="tab-pane fade" id="1027">
+                    <canvas id="polar-chart2" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart2"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1027}}, {{jeongja2_avg_1027}}, {{cheonmak2_avg_1027}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/27'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1028 -->
+                  <div class="tab-pane fade" id="1028">
+                    <canvas id="polar-chart3" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart3"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1028}}, {{jeongja2_avg_1028}}, {{cheonmak2_avg_1028}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/28'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1029 -->
+                  <div class="tab-pane fade" id="1029">
+                    <canvas id="polar-chart4" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart4"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1029}}, {{jeongja2_avg_1029}}, {{cheonmak2_avg_1029}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/29'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1030 -->
+                  <div class="tab-pane fade" id="1030">
+                    <canvas id="polar-chart5" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart5"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1030}}, {{jeongja2_avg_1030}}, {{cheonmak2_avg_1030}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/30'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1031 -->
+                  <div class="tab-pane fade" id="1031">
+                    <canvas id="polar-chart6" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart6"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1031}}, {{jeongja2_avg_1031}}, {{cheonmak2_avg_1031}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/31'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1101 -->
+                  <div class="tab-pane fade" id="1101">
+                    <canvas id="polar-chart7" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart7"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["jisun2", "jeongja2", "cheonmak2"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                            data: [{{jisun2_avg_1101}}, {{jeongja2_avg_1101}}, {{cheonmak2_avg_1101}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 11/01'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+
+                </div>
+              </div>
+
+
             </div>
-            <!-- jisun -->
-            <div class="tab-pane fade" id="jisun">
-              d
+            <!-- maxValue -->
+            <div class="tab-pane fade" id="maxValue">
+
+              <div style="margin:10px;">
+                <ul class="nav nav-pills">
+                  <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
+                  <li class="active"><a href="#jisunMax" data-toggle="tab">지선</a></li>
+                  <li><a href="#jeongjaMax" data-toggle="tab">정자</a></li>
+                  <li><a href="#cheonmakMax" data-toggle="tab">천막</a></li>
+                </ul>
+      
+                <!-- Tab이 선택되면 내용이 보여지는 영역 -->
+                <div class="tab-content">
+                  <div class="tab-pane fade in active" id="jisunMax">
+                    <canvas id="bar-chart" width="800" height="450"></canvas>
+                    <script>
+                      new Chart(document.getElementById("bar-chart"), {
+                        type: 'bar',
+                        data: {
+                          labels: ["10/26", "10/27", "10/28", "10/29", "10/30", "10/31", "11/01"],
+                          datasets: [
+                            {
+                              label: "Population (millions)",
+                              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#FF1493", "FFFF00"],
+                              data: [{{jisun2_max[0]}},{{jisun2_max[1]}},{{jisun2_max[2]}},{{jisun2_max[3]}},{{jisun2_max[4]}}, {{jisun2_max[5]}}, {{jisun2_max[6]}}]
+                            }
+                          ]
+                        },
+                        options: {
+                          legend: { display: false },
+                          title: {
+                            display: true,
+                            text: '지선 Maximum Smoking Level (ppm)'
+                          }
+                        }
+                    });
+                    </script>
+                  </div>
+                  <div class="tab-pane fade" id="jeongjaMax">
+                    <canvas id="bar-chart2" width="800" height="450"></canvas>
+                    <script>
+                      new Chart(document.getElementById("bar-chart2"), {
+                        type: 'bar',
+                        data: {
+                          labels: ["10/26", "10/27", "10/28", "10/29", "10/30", "10/31", "11/01"],
+                          datasets: [
+                            {
+                              label: "Population (millions)",
+                              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#FF1493", "FFFF00"],
+                              data: [{{jeongja2_max[0]}},{{jeongja2_max[1]}},{{jeongja2_max[2]}},{{jeongja2_max[3]}},{{jeongja2_max[4]}}, {{jeongja2_max[5]}}, {{jeongja2_max[6]}}]
+                            }
+                          ]
+                        },
+                        options: {
+                          legend: { display: false },
+                          title: {
+                            display: true,
+                            text: '정자 Maximum Smoking Level (ppm)'
+                          }
+                        }
+                    });
+                    </script>
+                  </div>
+                  <div class="tab-pane fade" id="cheonmakMax">
+                    <canvas id="bar-chart3" width="800" height="450"></canvas>
+                    <script>
+                      new Chart(document.getElementById("bar-chart3"), {
+                        type: 'bar',
+                        data: {
+                          labels: ["10/26", "10/27", "10/28", "10/29", "10/30", "10/31", "11/01"],
+                          datasets: [
+                            {
+                              label: "Population (millions)",
+                              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#FF1493", "FFFF00"],
+                              data: [{{cheonmak2_max[0]}},{{cheonmak2_max[1]}},{{cheonmak2_max[2]}},{{cheonmak2_max[3]}},{{cheonmak2_max[4]}}, {{cheonmak2_max[5]}}, {{cheonmak2_max[6]}}]
+                            }
+                          ]
+                        },
+                        options: {
+                          legend: { display: false },
+                          title: {
+                            display: true,
+                            text: '천막 Maximum Smoking Level (ppm)'
+                          }
+                        }
+                    });
+                    </script>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
+
             <!-- jeongja -->
-            <div class="tab-pane fade" id="jeonja">Profile 메뉴</div>
-            <!-- cheonmak -->
-            <div class="tab-pane fade" id="cheonmak">Messages 메뉴</div>
+            <div class="tab-pane fade" id="jeonja">
+              <div style="margin:10px;">
+                <ul class="nav nav-pills">
+                  <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
+                  <li class="active"><a href="#jisunMax" data-toggle="tab">지선</a></li>
+                  <li><a href="#jeongjaMax" data-toggle="tab">정자</a></li>
+                  <li><a href="#cheonmakMax" data-toggle="tab">천막</a></li>
+                </ul>
+      
+                <!-- Tab이 선택되면 내용이 보여지는 영역 -->
+                <div class="tab-content">
+                  <div class="tab-pane fade in active" id="jisunMax">a</div>
+                  <div class="tab-pane fade" id="jeongjaMax">b</div>
+                  <div class="tab-pane fade" id="cheonmakMax">c</div>
+                </div>
+              </div>
+            </div>
+            
           </div>
-        </div>
-  
-  
-
-
-        <div class="portfolio-description">
-          <h2>흡연 통계</h2>
-          <p>
-              구로구의 흡연 수치 통계를 다양한 형태로 시각화하였습니다.
-          </p>
         </div>
 
       </div>
