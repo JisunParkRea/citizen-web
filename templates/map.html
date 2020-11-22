@@ -145,6 +145,18 @@ var circle2 = new kakao.maps.Circle({
     fillOpacity: 0.9  // 채우기 불투명도 입니다   
 }); 
 
+var content2 = '<div class ="label"><span class="left"></span><span class="center">벽산디지털밸리7차</span><span class="right"></span></div>';
+
+var position2 = new kakao.maps.LatLng(37.4865531, 126.8932998);  
+
+var customOverlay2 = new kakao.maps.CustomOverlay({
+    position: position2,
+    content: content2   
+});
+
+customOverlay2.setMap(map);
+
+
 var circle3 = new kakao.maps.Circle({
     center : new kakao.maps.LatLng(37.487346, 126.893419),  // 원의 중심좌표 입니다 
     radius: 20, // 미터 단위의 원의 반지름입니다 
@@ -155,6 +167,18 @@ var circle3 = new kakao.maps.Circle({
     fillColor: '#75B8FA', // 채우기 색깔입니다
     fillOpacity: 0.9  // 채우기 불투명도 입니다   
 }); 
+
+var content3 = '<div class ="label"><span class="left"></span><span class="center">벽산디지털밸리7차</span><span class="right"></span></div>';
+
+var position3 = new kakao.maps.LatLng(37.487346, 126.893419);  
+
+var customOverlay3 = new kakao.maps.CustomOverlay({
+    position: position3,
+    content: content3   
+});
+
+customOverlay3.setMap(map);
+
 
 // 지도에 원을 표시합니다 
 circle.setMap(map); 
