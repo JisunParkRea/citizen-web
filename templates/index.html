@@ -109,7 +109,7 @@
                 <li><i class="icofont-check-circled"></i> 수집한 데이터를 시간별 차트로 시각화</li>
                 <li><i class="icofont-check-circled"></i> 지역별 흡연량을 보여주는 스모킹맵 제작</li>
                 <li><i class="icofont-check-circled"></i> 제작 과정을 담은 도록 제작</li>
-                <li><i class="icofont-check-circled"></i> 이 모든 것을 오픈소스로 공개</li>
+                <li><i class="icofont-check-circled"></i> 모든 자료들을 오픈소스로 공개</li>
               </ul>
               <p>
                 흡연자에겐 확실한 흡연구역을 알려주는 지표가 되고, 비흡연자에겐 간접흡연을 피할 수 있는 정보를 제공해주는 것을 목표로하고 있습니다.
@@ -158,22 +158,22 @@
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
                 <figure>
-                  <img src="{{ url_for('static', filename='img/arduino.jpeg') }}" alt="" class="img-fluid">
+                  <img src="{{ url_for('static', filename='img/arduino.png') }}" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-2">
                 <figure>
-                  <img src="{{ url_for('static', filename='img/line_chart.png') }}" alt="" class="img-fluid">
+                  <img src="{{ url_for('static', filename='img/chart.png') }}" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-3">
                 <figure>
-                  <img src="{{ url_for('static', filename='img/features-3.png') }}" alt="" class="img-fluid">
+                  <img src="{{ url_for('static', filename='img/smokingmap.png') }}" alt="" class="img-fluid">
                 </figure>
               </div>
               <div class="tab-pane" id="tab-4">
                 <figure>
-                  <img src="{{ url_for('static', filename='img/features-4.png') }}" alt="" class="img-fluid">
+                  <img src="{{ url_for('static', filename='img/dorok.png') }}" alt="" class="img-fluid">
                 </figure>
               </div>
             </div>
@@ -212,7 +212,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box icon-box-green">
               <div class="icon"><i class='bx bx-code-alt' ></i></div>
-              <h4 class="title"><a href="{{ url_for('chart') }}">오픈소스</a></h4>
+              <h4 class="title"><a href="{{ url_for('opensource') }}">오픈소스</a></h4>
               <p class="description">누구나 프로젝트에 참여할 수 있게 무료로 공개하는 오픈소스<br></p>
             </div>
           </div>
@@ -408,14 +408,8 @@
             <div class="member" data-aos="zoom-in" data-aos-delay="200">
               <div class="pic"><img src="{{ url_for('static', filename='img/smartcity.png') }}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>강인혜</h4>
+                <h4>강인해</h4>
                 <span>Designer</span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
               </div>
             </div>
           </div>
@@ -426,12 +420,6 @@
               <div class="member-info">
                 <h4>최주리</h4>
                 <span>Developer</span>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
               </div>
             </div>
           </div>
@@ -542,7 +530,7 @@
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('map') }}">Smoking Map</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('chart') }}">Chart</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('chart') }}">OpenSource</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('opensource') }}">OpenSource</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('forum') }}">Forum</a></li>
             </ul>
           </div>

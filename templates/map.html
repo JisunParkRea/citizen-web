@@ -86,9 +86,9 @@
 <p id="result"></p>
 
 <script>
-var area1 = [37.4874861,126.8931037]; //벽산디지털밸리7차
-var area2 = [37.4864771,126.893902]; //삼성IT밸리
-var area3 = [37.4861076,126.8927624]; //ENC벤처드림타워3차
+var area1 = [37.487448, 126.893996]; //벽산디지털밸리7차
+var area2 = [37.486313, 126.894339]; //삼성IT밸리
+var area3 = [37.486635, 126.893167]; //ENC벤처드림타워3차
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -325,7 +325,7 @@ kakao.maps.event.addListener(circle3, 'mousedown', function() {
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('map') }}">Smoking Map</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('chart') }}">Chart</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('chart') }}">OpenSource</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('opensource') }}">OpenSource</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('forum') }}">Forum</a></li>
             </ul>
           </div>

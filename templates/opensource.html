@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Open Source</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+  <!-- Code highlighter -->
+  <script src="{{ url_for('static', filename='js/highlight.pack.js') }}"></script>
+  <link href="{{ url_for('static', filename='css/github.css') }}" rel="stylesheet">
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <!-- =======================================================
+  * Template Name: Scaffold - v2.0.0
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{{ url_for('index') }}"><span>Citizen</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+          
+        </ul>
+      </nav><!-- .nav-menu -->
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('opensource') }}">Open Source</a></li>
+        </ol>
+        <h2>오픈소스 - 아두이노 & 웹 소스코드</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+
+        <h4>&#x25ba; Arduino Code</h4>
+        <p>
+        <pre><code>
+/* 1. 라이브러리 가져오기 */
+#include "MQ7.h" // mq-7 라이브러리
+#include &lt;SPI.h&gt; // arduino와 sd카드가 데이터를 주고받기 위한 라이브러리
+#include &lt;SD.h&gt; // sd카드 파일시스템을 사용하기 위한 라이브러리
+          
+/* 2. 변수 선언 */
+File myFile; // 파일 선언
+int smokePin = 0; // A0핀
+MQ7 mq7(smokePin, 5.0); // param[1] : Analog pin number, param[2] : Sensor Vcc value
+unsigned long cnt = 1; // 기록 횟수 세기
+int smoke_level; // 측정된 mq-7 센서 저항값
+float smoke_ppm; // 측정된 담배 연기 ppm
+
+/* 3. 아두이노 시작 후 한번만 실행되는 준비함수 */
+void setup() {
+  Serial.begin(9600); // 시리얼 모니터 초기화
+  pinMode(smokePin, INPUT); // 핀 초기화
+
+  // sd카드 초기화
+  Serial.print("Initializing SD card..."); 
+  if (!SD.begin(10)) { // cs핀 번호 
+    Serial.println("initialization failed!"); 
+    return; 
+  } 
+  Serial.println("initialization done."); 
+}
+
+/* 4. 아두이노가 실행되는 동안 반복해서 실행되는 반복함수 */
+void loop() {
+  smoke_level = analogRead(smokePin); // 저항값 측정
+  smoke_ppm = mq7.getPPM(); // ppm값 측정
+  myFile = SD.open("test.txt", FILE_WRITE); // test.txt 파일을 쓰기 가능으로 열기
+  myFile.print(cnt++); // 측정 횟수 기록하기 1, 2, 3, ...
+  myFile.print(",");
+  myFile.print(smoke_ppm); // ppm값 기록하기
+  myFile.print(",");
+  myFile.println(map(smoke_level, 0, 1023, 0, 100000)); // 0~1023의 저항값을 0~100000값으로 맵핑하기
+    
+  delay(1000);  // 1초 대기
+  myFile.close(); // 파일 닫기
+}
+        </code></pre>
+        </p>
+
+        <br>
+        <h4>&#x25ba; Web Source Code</h4>
+        아래는 application.py 코드의 일부입니다. 전체 소스코드는 <a href="https://github.com/JisunParkRea/citizen-web"><i class='bx bxl-github'>Github</i></a>에서 볼 수 있습니다.
+        <p>
+          <pre><code>
+from flask import Flask, render_template
+
+import csv
+import json
+
+application = Flask(__name__, static_url_path='/static')
+
+# kakao map api token
+with open('secrets.json') as json_file:
+    json_data = json.load(json_file)
+
+KAKAO_MAP_API_KEY = json_data["KAKAO_MAP_API_KEY"]
+
+
+# read smoking level data function
+def read_data(hours, minutes, data_file, labels, values, time_interval):
+    cnt = 0
+    tmp_sum = 0
+    total_cnt = 0 # 3600:1시간, 14400:4시간, 18000:5시간, 21600:6시간, 46546:대략13시간
+    
+    f = open(data_file, 'r', encoding='utf-8')
+    rdr = csv.reader(f)
+    for line in rdr:
+        total_cnt += 1
+        if total_cnt < 900: # 15분 skip
+            continue
+        tmp_sum += float(line[1]) # ppm 수치 기준
+        cnt += 1
+        if cnt==60:
+            #labels.append(str(int(line[0])//60)) # per minutes
+            minutes += 1
+            if minutes==60:
+                hours += 1
+                minutes = 0
+            labels.append(str(hours)+"시"+str(minutes)+"분")
+            values.append(str(round(tmp_sum/60, 2))) # ppm
+            cnt = 0
+            tmp_sum = 0
+        if total_cnt==time_interval:
+            break
+    f.close()
+    return
+
+# calculate average
+def calc_avg(data_file):
+    f = open(data_file, 'r', encoding='utf-8')
+    rdr = csv.reader(f)
+
+    total_sum = 0
+    total_cnt = 0
+    for line in rdr:
+        total_cnt += 1
+        if total_cnt < 900:
+            continue
+        total_sum += float(line[1])
+    return total_sum/(total_cnt-900)
+
+# calculate max value
+def calc_max(data_file):
+    f = open(data_file, 'r', encoding='utf-8')
+    rdr = csv.reader(f)
+
+    total_cnt = 0
+    max_value = 0
+    for line in rdr:
+        total_cnt += 1
+        if total_cnt < 900:
+            continue
+        if float(line[1]) > max_value:
+            max_value = float(line[1])
+    return str(max_value)
+
+
+
+@application.route('/')
+def index():
+    return render_template('index.html')
+
+...
+          </code></pre>
+        </p>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Citizen</h3>
+              <p>
+                흡연자와 비흡연자의 '동행'을 위한<br>
+                '스마트 시민랩 프로젝트'팀 시티즌입니다.<br><br>
+                <strong>Email:</strong> 팀원 개인에게 연락 바랍니다<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#team">Team</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Portfolio</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('map') }}">Smoking Map</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('chart') }}">Chart</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('opensource') }}">OpenSource</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url_for('forum') }}">Forum</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Our Logo</h4>
+            <img src="{{ url_for('static', filename='img/citizen_logo.png') }}" alt="" class="img-fluid">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Citizen</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
