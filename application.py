@@ -333,6 +333,11 @@ def statistics_max():
     return render_template('statistics-max.html', jisun2_max=jisun2_max, jeongja2_max=jeongja2_max, cheonmak2_max=cheonmak2_max)
 
 
+@application.route('/opensource')
+def opensource():
+    return render_template('opensource.html')
+
+
 @application.route('/forum')
 def forum():
     return render_template('forum.html')
