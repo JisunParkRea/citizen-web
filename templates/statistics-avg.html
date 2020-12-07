@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Statistics - 평균</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/icofont/icofont.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/venobox/venobox.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css') }}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Chart.min.js -->
+  <script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+
+  <!-- =======================================================
+  * Template Name: Scaffold - v2.0.0
+  * Template URL: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="{{ url_for('index') }}"><span>Citizen</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+          
+        </ul>
+      </nav><!-- .nav-menu -->
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('chart') }}">Chart&Statistics</a></li>
+          <li>Statistics - Average</li>
+        </ol>
+        <h2>[통계] 평균</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+              <!-- avg -->
+              <div style="margin:10px;">
+                <ul class="nav nav-tabs">
+                  <!-- Tab 아이템이다. 태그는 li과 li > a이다. li태그에 active는 현재 선택되어 있는 탭 메뉴이다. -->
+                  <li class="active"><a href="#1026" data-toggle="tab">10/26</a></li>
+                  <li><a href="#1027" data-toggle="tab">1027</a></li>
+                  <li><a href="#1028" data-toggle="tab">1028</a></li>
+                  <li><a href="#1029" data-toggle="tab">1029</a></li>
+                  <li><a href="#1030" data-toggle="tab">1030</a></li>
+                  <li><a href="#1031" data-toggle="tab">1031</a></li>
+                  <li><a href="#1101" data-toggle="tab">1101</a></li>
+                </ul>
+      
+                <!-- Tab이 선택되면 내용이 보여지는 영역 -->
+                <div class="tab-content">
+                  <!-- 1026 -->
+                  <div class="tab-pane fade in active" id="1026">
+                    <canvas id="polar-chart" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1026}}, {{jeongja2_avg_1026}}, {{cheonmak2_avg_1026}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/26'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1027 -->
+                  <div class="tab-pane fade" id="1027">
+                    <canvas id="polar-chart2" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart2"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1027}}, {{jeongja2_avg_1027}}, {{cheonmak2_avg_1027}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/27'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1028 -->
+                  <div class="tab-pane fade" id="1028">
+                    <canvas id="polar-chart3" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart3"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1028}}, {{jeongja2_avg_1028}}, {{cheonmak2_avg_1028}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/28'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1029 -->
+                  <div class="tab-pane fade" id="1029">
+                    <canvas id="polar-chart4" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart4"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1029}}, {{jeongja2_avg_1029}}, {{cheonmak2_avg_1029}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/29'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1030 -->
+                  <div class="tab-pane fade" id="1030">
+                    <canvas id="polar-chart5" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart5"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1030}}, {{jeongja2_avg_1030}}, {{cheonmak2_avg_1030}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/30'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1031 -->
+                  <div class="tab-pane fade" id="1031">
+                    <canvas id="polar-chart6" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart6"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1031}}, {{jeongja2_avg_1031}}, {{cheonmak2_avg_1031}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 10/31'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+                  <!-- 1101 -->
+                  <div class="tab-pane fade" id="1101">
+                    <canvas id="polar-chart7" width="800" height="450"></canvas>
+                    <script>
+                    new Chart(document.getElementById("polar-chart7"), {
+                      type: 'polarArea',
+                      data: {
+                        labels: ["벽산디지털밸리7차", "ENC벤처드림타워3차", "삼성IT밸리"],
+                        datasets: [
+                          {
+                            label: "Smoking Level Average (ppm)",
+                            backgroundColor: ["#EBEB00", "#E73939","#295DF2"],
+                            data: [{{jisun2_avg_1101}}, {{jeongja2_avg_1101}}, {{cheonmak2_avg_1101}}]
+                          }
+                        ]
+                      },
+                      options: {
+                        scale: {
+                          ticks: {
+                            beginAtZero: true,
+                            max: 3.5,
+                            min: 0,
+                            stepSize: 0.5
+                          }
+                        },
+                        title: {
+                          display: true,
+                          text: 'Smoking Level Average (ppm) in 11/01'
+                        }
+                      }
+                    });
+                    </script>
+                  </div>
+
+                </div>
+              </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Scaffold</h3>
+              <p>
+                A108 Adam Street <br>
+                NY 535022, USA<br><br>
+                <strong>Phone:</strong> +1 5589 55488 55<br>
+                <strong>Email:</strong> info@example.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Scaffold</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/scaffold-bootstrap-metro-style-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>

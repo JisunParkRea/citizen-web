@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
-  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -86,6 +86,10 @@
 <p id="result"></p>
 
 <script>
+var area1 = [37.4874861,126.8931037]; //벽산디지털밸리7차
+var area2 = [37.4864771,126.893902]; //삼성IT밸리
+var area3 = [37.4861076,126.8927624]; //ENC벤처드림타워3차
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
         center: new kakao.maps.LatLng(37.486949, 126.892970), // 지도의 중심좌표
@@ -108,14 +112,14 @@ map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 // 지도에 표시할 원을 생성합니다
 // 벽산디지털밸리7차
 var circle = new kakao.maps.Circle({
-    center : new kakao.maps.LatLng(37.48751591, 126.8918162),  // 원의 중심좌표 입니다 
-    radius: 50, // 미터 단위의 원의 반지름입니다 
+    center : new kakao.maps.LatLng(area1[0], area1[1]),  // 원의 중심좌표 입니다   
+    radius: 35, // 미터 단위의 원의 반지름입니다 
     strokeWeight: 5, // 선의 두께입니다 
-    strokeColor: '#f52424', // 선의 색깔입니다
+    strokeColor: '#ffff00', // 선의 색깔입니다
     strokeOpacity: 0, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
     strokeStyle: 'solid', // 선의 스타일 입니다
-    fillColor: '#f52424', // 채우기 색깔입니다
-    fillOpacity: 0.9  // 채우기 불투명도 입니다   
+    fillColor: '#ffff00', // 채우기 색깔입니다
+    fillOpacity: 0.9  // 채우기 불투명도 입니다 
 });
 
 // 커스텀 오버레이에 표시할 내용입니다     
@@ -123,7 +127,7 @@ var circle = new kakao.maps.Circle({
 var content = '<div class ="label"><span class="left"></span><span class="center">벽산디지털밸리7차</span><span class="right"></span></div>';
 
 // 커스텀 오버레이가 표시될 위치입니다 
-var position = new kakao.maps.LatLng(37.48751591, 126.8918162);  
+var position = new kakao.maps.LatLng(area1[0], area1[1]);  
 
 // 커스텀 오버레이를 생성합니다
 var customOverlay = new kakao.maps.CustomOverlay({
@@ -134,20 +138,22 @@ var customOverlay = new kakao.maps.CustomOverlay({
 // 커스텀 오버레이를 지도에 표시합니다
 customOverlay.setMap(map);
 
+
+// 삼성IT밸리
 var circle2 = new kakao.maps.Circle({
-    center : new kakao.maps.LatLng(37.4865531, 126.8932998),  // 원의 중심좌표 입니다 
-    radius: 35, // 미터 단위의 원의 반지름입니다 
+    center : new kakao.maps.LatLng(area2[0], area2[1]),  // 원의 중심좌표 입니다   
+    radius: 20, // 미터 단위의 원의 반지름입니다 
     strokeWeight: 5, // 선의 두께입니다 
-    strokeColor: '#ffff00', // 선의 색깔입니다
+    strokeColor: '#75B8FA', // 선의 색깔입니다
     strokeOpacity: 0, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
     strokeStyle: 'solid', // 선의 스타일 입니다
-    fillColor: '#ffff00', // 채우기 색깔입니다
-    fillOpacity: 0.9  // 채우기 불투명도 입니다   
+    fillColor: '#75B8FA', // 채우기 색깔입니다
+    fillOpacity: 0.9  // 채우기 불투명도 입니다 
 }); 
 
-var content2 = '<div class ="label"><span class="left"></span><span class="center">벽산디지털밸리7차</span><span class="right"></span></div>';
+var content2 = '<div class ="label"><span class="left"></span><span class="center">삼성IT밸리</span><span class="right"></span></div>';
 
-var position2 = new kakao.maps.LatLng(37.4865531, 126.8932998);  
+var position2 = new kakao.maps.LatLng(area2[0], area2[1]);  
 
 var customOverlay2 = new kakao.maps.CustomOverlay({
     position: position2,
@@ -157,20 +163,21 @@ var customOverlay2 = new kakao.maps.CustomOverlay({
 customOverlay2.setMap(map);
 
 
+// ENC벤처드림타워3차
 var circle3 = new kakao.maps.Circle({
-    center : new kakao.maps.LatLng(37.487346, 126.893419),  // 원의 중심좌표 입니다 
-    radius: 20, // 미터 단위의 원의 반지름입니다 
+    center : new kakao.maps.LatLng(area3[0], area3[1]),  // 원의 중심좌표 입니다 
+    radius: 50, // 미터 단위의 원의 반지름입니다 
     strokeWeight: 5, // 선의 두께입니다 
-    strokeColor: '#75B8FA', // 선의 색깔입니다
+    strokeColor: '#f52424', // 선의 색깔입니다
     strokeOpacity: 0, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
     strokeStyle: 'solid', // 선의 스타일 입니다
-    fillColor: '#75B8FA', // 채우기 색깔입니다
+    fillColor: '#f52424', // 채우기 색깔입니다
     fillOpacity: 0.9  // 채우기 불투명도 입니다   
 }); 
 
-var content3 = '<div class ="label"><span class="left"></span><span class="center">벽산디지털밸리7차</span><span class="right"></span></div>';
+var content3 = '<div class ="label"><span class="left"></span><span class="center">ENC벤처드림타워3차</span><span class="right"></span></div>';
 
-var position3 = new kakao.maps.LatLng(37.487346, 126.893419);  
+var position3 = new kakao.maps.LatLng(area3[0], area3[1]);  
 
 var customOverlay3 = new kakao.maps.CustomOverlay({
     position: position3,
@@ -189,22 +196,22 @@ circle3.setMap(map);
 // 다각형에 마우스오버 이벤트가 발생했을 때 변경할 채우기 옵션입니다
 var mouseoverOption = { 
     fillColor: '#EFFFED', // 채우기 색깔입니다
-    fillOpacity: 0.8 // 채우기 불투명도 입니다        
+    fillOpacity: 0.9 // 채우기 불투명도 입니다        
 };
 
 // 다각형에 마우스아웃 이벤트가 발생했을 때 변경할 채우기 옵션입니다
 var mouseoutOption = {
-    fillColor: '#f52424', // 채우기 색깔입니다 
-    fillOpacity: 0.8 // 채우기 불투명도 입니다        
-};
-
-var mouseoutOption2 = {
     fillColor: '#ffff00', // 채우기 색깔입니다 
     fillOpacity: 0.8 // 채우기 불투명도 입니다        
 };
 
-var mouseoutOption3 = {
+var mouseoutOption2 = {
     fillColor: '#75B8FA', // 채우기 색깔입니다 
+    fillOpacity: 0.8 // 채우기 불투명도 입니다        
+};
+
+var mouseoutOption3 = {
+    fillColor: '#f52424', // 채우기 색깔입니다 
     fillOpacity: 0.8 // 채우기 불투명도 입니다        
 };
 
@@ -254,12 +261,24 @@ circle3.setOptions(mouseoutOption3);
 }); 
 
 // 다각형에 마우스다운 이벤트를 등록합니다
-var downCount = 0;
 kakao.maps.event.addListener(circle, 'mousedown', function() { 
     console.log(event);
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '다각형에 mousedown 이벤트가 발생했습니다!' + (++downCount);
+    resultDiv.innerHTML = '<p><h3>벽산디지털밸리7차</h3>서울 구로구 디지털로33길 50</p> 평균: 2.38';
 }); 
+
+kakao.maps.event.addListener(circle2, 'mousedown', function() { 
+    console.log(event);
+    var resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '<p><h3>삼성IT밸리</h3>서울 구로구 디지털로33길 27</p> 평균: 1.57';
+}); 
+
+kakao.maps.event.addListener(circle3, 'mousedown', function() { 
+    console.log(event);
+    var resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '<p><h3>ENC벤처드림타워3차</h3>서울 구로구 디지털로31길 38-21 이앤씨벤처드림타워 3차</p> 평균: 2.50';
+}); 
+
 </script>
 
         <div class="portfolio-description">
@@ -321,15 +340,6 @@ kakao.maps.event.addListener(circle, 'mousedown', function() {
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
         </div>
       </div>
     </div>
@@ -354,7 +364,6 @@ kakao.maps.event.addListener(circle, 'mousedown', function() {
   <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/jquery.easing/jquery.easing.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/venobox/venobox.min.js') }}"></script>
   <script src="{{ url_for('static', filename='vendor/owl.carousel/owl.carousel.min.js') }}"></script>
