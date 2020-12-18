@@ -263,19 +263,73 @@ circle3.setOptions(mouseoutOption3);
 kakao.maps.event.addListener(circle, 'mousedown', function() { 
     console.log(event);
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '<p><h3>벽산디지털밸리7차</h3>서울 구로구 디지털로33길 50</p> 평균: 2.38';
+    resultDiv.innerHTML = '<div class="row">\
+  <div class="col">\
+    <p>\
+      <h3>벽산디지털밸리7차</h3>\
+      서울 구로구 디지털로33길 50\
+    </p>\
+  </div>\
+  <div class="col">\
+    <p>\
+      <h5>\
+        <div class="btn-group">\
+          <a href="{{ url_for('chart_jisun') }}" class="btn btn-outline-warning" role="button">차트 보러가기</a>\
+          <a href="{{ url_for('statistics_avg') }}" class="btn btn-light text-dark stretched-link" role="button">평균 보러가기</a>\
+          <a href="{{ url_for('statistics_max') }}" class="btn btn-dark text-white stretched-link" role="button">최대값 보러가기</a>\
+        </div>\
+      </h5>\
+    </p>\
+  </div>\
+</div> 평균: 2.38';
 }); 
 
 kakao.maps.event.addListener(circle2, 'mousedown', function() { 
     console.log(event);
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '<p><h3>삼성IT밸리</h3>서울 구로구 디지털로33길 27</p> 평균: 1.57';
+    resultDiv.innerHTML = '<div class="row">\
+  <div class="col">\
+    <p>\
+      <h3>삼성IT밸리</h3>\
+      서울 구로구 디지털로33길 27\
+    </p>\
+  </div>\
+  <div class="col">\
+    <p>\
+      <h5>\
+        <div class="btn-group">\
+          <a href="{{ url_for('chart_cheonmak') }}" class="btn btn-outline-primary" role="button">차트 보러가기</a>\
+          <a href="{{ url_for('statistics_avg') }}" class="btn btn-light text-dark stretched-link" role="button">평균 보러가기</a>\
+          <a href="{{ url_for('statistics_max') }}" class="btn btn-dark text-white stretched-link" role="button">최대값 보러가기</a>\
+        </div>\
+      </h5>\
+    </p>\
+  </div>\
+</div> 평균: 1.57';
 }); 
 
 kakao.maps.event.addListener(circle3, 'mousedown', function() { 
     console.log(event);
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '<p><h3>ENC벤처드림타워3차</h3>서울 구로구 디지털로31길 38-21 이앤씨벤처드림타워 3차</p> 평균: 2.50';
+    resultDiv.innerHTML = '<div class="row">\
+  <div class="col">\
+    <p>\
+      <h3>ENC벤처드림타워3차</h3>\
+      서울 구로구 디지털로31길 38-21 이앤씨벤처드림타워 3차\
+    </p>\
+  </div>\
+  <div class="col">\
+    <p>\
+      <h5>\
+        <div class="btn-group">\
+          <a href="{{ url_for('chart_jeongja') }}" class="btn btn-outline-danger" role="button">차트 보러가기</a>\
+          <a href="{{ url_for('statistics_avg') }}" class="btn btn-light text-dark stretched-link" role="button">평균 보러가기</a>\
+          <a href="{{ url_for('statistics_max') }}" class="btn btn-dark text-white stretched-link" role="button">최대값 보러가기</a>\
+        </div>\
+      </h5>\
+    </p>\
+  </div>\
+</div> 평균: 2.50';
 }); 
 
 </script>
